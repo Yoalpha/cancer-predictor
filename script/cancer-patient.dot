@@ -1,0 +1,37 @@
+digraph Tree {
+node [shape=box, style="filled, rounded", color="black", fontname="helvetica"] ;
+edge [fontname="helvetica"] ;
+0 [label="Coughing of Blood <= 5.5\ngini = 0.665\nsamples = 1000\nvalue = [365, 303, 332]\nclass = High", fillcolor="#fef9f5"] ;
+1 [label="Swallowing Difficulty <= 4.5\ngini = 0.517\nsamples = 585\nvalue = [10.0, 283.0, 292.0]\nclass = Medium", fillcolor="#fbf9fe"] ;
+0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
+2 [label="Level <= 4.5\ngini = 0.357\nsamples = 364\nvalue = [10, 283, 71]\nclass = Low", fillcolor="#70eca4"] ;
+1 -> 2 ;
+3 [label="Obesity <= 4.5\ngini = 0.177\nsamples = 313\nvalue = [10, 283, 20]\nclass = Low", fillcolor="#4de88e"] ;
+2 -> 3 ;
+4 [label="gini = 0.0\nsamples = 283\nvalue = [0, 283, 0]\nclass = Low", fillcolor="#39e581"] ;
+3 -> 4 ;
+5 [label="Shortness of Breath <= 5.5\ngini = 0.444\nsamples = 30\nvalue = [10, 0, 20]\nclass = Medium", fillcolor="#c09cf2"] ;
+3 -> 5 ;
+6 [label="gini = 0.0\nsamples = 20\nvalue = [0, 0, 20]\nclass = Medium", fillcolor="#8139e5"] ;
+5 -> 6 ;
+7 [label="gini = 0.0\nsamples = 10\nvalue = [10, 0, 0]\nclass = High", fillcolor="#e58139"] ;
+5 -> 7 ;
+8 [label="gini = 0.0\nsamples = 51\nvalue = [0, 0, 51]\nclass = Medium", fillcolor="#8139e5"] ;
+2 -> 8 ;
+9 [label="gini = 0.0\nsamples = 221\nvalue = [0, 0, 221]\nclass = Medium", fillcolor="#8139e5"] ;
+1 -> 9 ;
+10 [label="Air ollution <= 1.5\ngini = 0.257\nsamples = 415\nvalue = [355, 20, 40]\nclass = High", fillcolor="#e99559"] ;
+0 -> 10 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+11 [label="gini = 0.0\nsamples = 30\nvalue = [0, 0, 30]\nclass = Medium", fillcolor="#8139e5"] ;
+10 -> 11 ;
+12 [label="Obesity <= 2.5\ngini = 0.146\nsamples = 385\nvalue = [355, 20, 10]\nclass = High", fillcolor="#e78b49"] ;
+10 -> 12 ;
+13 [label="gini = 0.0\nsamples = 20\nvalue = [0, 20, 0]\nclass = Low", fillcolor="#39e581"] ;
+12 -> 13 ;
+14 [label="Frequent Cold <= 1.5\ngini = 0.053\nsamples = 365\nvalue = [355, 0, 10]\nclass = High", fillcolor="#e6853f"] ;
+12 -> 14 ;
+15 [label="gini = 0.0\nsamples = 10\nvalue = [0, 0, 10]\nclass = Medium", fillcolor="#8139e5"] ;
+14 -> 15 ;
+16 [label="gini = 0.0\nsamples = 355\nvalue = [355, 0, 0]\nclass = High", fillcolor="#e58139"] ;
+14 -> 16 ;
+}
