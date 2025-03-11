@@ -11,7 +11,7 @@ body{
     align-items: center;
     min-height: 100vh;
     background-color: rgb(27, 28, 28);
-    background: url("../images/background.jpg") no-repeat;
+    background: url("../images/backgroundblack.webp") no-repeat;
     background-size: cover;
     background-position: center;
 }
