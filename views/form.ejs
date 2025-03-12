@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Health Assessment Form</title>
+</head>
+<body>
+    <div class="container fade-in">
+        <div class="form-card slide-up">
+            <h1>Health Assessment Form</h1>
+            <form id="healthForm">
+                <div class="doctor-section">
+                    <h2>Doctor Information</h2>
+                    <div class="form-group special-input">
+                        <input type="text" id="doctorName" name="doctorName" placeholder="Doctor's Name" required>
+                    </div>
+                </div>
+                <div class="patient-section">
+                    <h2>Patient Information</h2>
+                    <div class="patient-info-grid">
+                        <div class="form-group special-input">
+                            <input type="number" id="age" name="age" placeholder="Age" required>
+                        </div>
+                        <div class="form-group special-input">
+                            <select id="gender" name="gender" required>
+                                <option value="" disabled selected>Select Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="assessment-section">
+                    <h2>Health Assessment</h2>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <input type="number" id="airPollution" name="airPollution" placeholder="Air Pollution (1-10)" min="1" max="10" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" id="alcoholUse" name="alcoholUse" placeholder="Alcohol Use (1-10)" min="1" max="10" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" id="dustAllergy" name="dustAllergy" placeholder="Dust Allergy (1-10)" min="1" max="10" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" id="occupationalHazards" name="occupationalHazards" placeholder="Occupational Hazards (1-10)" min="1" max="10" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" id="geneticRisk" name="geneticRisk" placeholder="Genetic Risk (1-10)" min="1" max="10" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" id="chronicLungDisease" name="chronicLungDisease" placeholder="Chronic Lung Disease (1-10)" min="1" max="10" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" id="balancedDiet" name="balancedDiet" placeholder="Balanced Diet (1-10)" min="1" max="10" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" id="obesity" name="obesity" placeholder="Obesity (1-10)" min="1" max="10" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" id="smoking" name="smoking" placeholder="Smoking (1-10)" min="1" max="10" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" id="passiveSmoker" name="passiveSmoker" placeholder="Passive Smoker (1-10)" min="1" max="10" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" id="chestPain" name="chestPain" placeholder="Chest Pain (1-10)" min="1" max="10" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" id="coughingOfBlood" name="coughingOfBlood" placeholder="Coughing of Blood (1-10)" min="1" max="10" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" id="fatigue" name="fatigue" placeholder="Fatigue (1-10)" min="1" max="10" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" id="weightLoss" name="weightLoss" placeholder="Weight Loss (1-10)" min="1" max="10" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" id="shortnessOfBreath" name="shortnessOfBreath" placeholder="Shortness of Breath (1-10)" min="1" max="10" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" id="wheezing" name="wheezing" placeholder="Wheezing (1-10)" min="1" max="10" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" id="swallowingDifficulty" name="swallowingDifficulty" placeholder="Swallowing Difficulty (1-10)" min="1" max="10" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" id="clubbingOfFingerNails" name="clubbingOfFingerNails" placeholder="Clubbing of Finger Nails (1-10)" min="1" max="10" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" id="frequentCold" name="frequentCold" placeholder="Frequent Cold (1-10)" min="1" max="10" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" id="dryCough" name="dryCough" placeholder="Dry Cough (1-10)" min="1" max="10" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" id="snoring" name="snoring" placeholder="Snoring (1-10)" min="1" max="10" required>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn">Submit Assessment</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.querySelector('.container');
+            const formCard = document.querySelector('.form-card');
+            
+            container.style.opacity = '1';
+            formCard.style.transform = 'translateY(0)';
+            
+            const createParticles = () => {
+                const particlesContainer = document.createElement('div');
+                particlesContainer.style.position = 'fixed';
+                particlesContainer.style.width = '100%';
+                particlesContainer.style.height = '100%';
+                particlesContainer.style.zIndex = '-1';
+                document.body.appendChild(particlesContainer);
+
+                for (let i = 0; i < 50; i++) {
+                    const particle = document.createElement('div');
+                    particle.style.position = 'absolute';
+                    particle.style.width = Math.random() * 3 + 'px';
+                    particle.style.height = particle.style.width;
+                    particle.style.background = 'rgba(140, 103, 246, 0.2)';
+                    particle.style.borderRadius = '50%';
+                    particle.style.left = Math.random() * 100 + 'vw';
+                    particle.style.top = Math.random() * 100 + 'vh';
+                    particle.style.animation = `float ${Math.random() * 6 + 4}s infinite`;
+                    particlesContainer.appendChild(particle);
+                }
+            };
+
+            createParticles();
+        });
+    </script>
+</body>
+</html>

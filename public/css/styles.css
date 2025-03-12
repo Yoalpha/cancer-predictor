@@ -1,0 +1,347 @@
+:root {
+    --primary-color: #8c67f6;
+    --bg-color: #000000;
+    --card-bg: rgba(18, 18, 18, 0.85);
+    --text-color: #ffffff;
+    --input-bg: rgba(30, 30, 30, 0.75);
+    --input-border: rgba(140, 103, 246, 0.2);
+    --hover-color: #9d7ff7;
+    --placeholder-color: rgba(255, 255, 255, 0.5);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Animated background */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(140, 103, 246, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(140, 103, 246, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(18, 18, 18, 0.9) 0%, rgba(0, 0, 0, 1) 100%);
+    z-index: -1;
+}
+
+/* Floating particles */
+@keyframes float {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
+    100% { transform: translateY(0) rotate(360deg); }
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 2rem;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    position: relative;
+}
+
+/* Glassmorphism effect */
+.form-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transform: translateY(50px);
+    transition: transform 0.8s ease-out, box-shadow 0.3s ease;
+}
+
+.form-card:hover {
+    box-shadow: 0 8px 40px rgba(140, 103, 246, 0.2);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    text-shadow: 0 0 20px rgba(140, 103, 246, 0.3);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+input[type="number"],
+select {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid var(--input-border);
+    border-radius: 12px;
+    background: var(--input-bg);
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+input[type="number"]::placeholder,
+select::placeholder {
+    color: var(--placeholder-color);
+}
+
+input[type="number"]:focus,
+select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 15px rgba(140, 103, 246, 0.2);
+    background: rgba(40, 40, 40, 0.9);
+}
+
+select {
+    cursor: pointer;
+}
+
+select option {
+    background-color: #121212;
+    color: var(--text-color);
+}
+
+.submit-btn {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    margin: 2.5rem auto 0;
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--primary-color), #7c4dff);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.submit-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.submit-btn:hover::before {
+    left: 100%;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(140, 103, 246, 0.4);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+/* Remove number input arrows */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(140, 103, 246, 0.5);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .form-card {
+        padding: 1.5rem;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+}
+
+/* Animation classes */
+.fade-in {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slide-up {
+    transform: translateY(50px);
+    transition: transform 0.8s ease-out;
+}
+
+/* Update the section styles */
+.doctor-section,
+.patient-section,
+.assessment-section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    border-radius: 12px;
+    background: rgba(30, 30, 30, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(140, 103, 246, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.doctor-section {
+    /* background: rgba(140, 103, 246, 0.1); */
+}
+
+h2 {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+/* Special input styles for doctor's name */
+.doctor-section .special-input input[type="text"] {
+    width: 100%;
+    padding: 1.2rem;
+    border: 1px solid rgba(140, 103, 246, 0.3);
+    border-radius: 12px;
+    background: rgba(30, 30, 30, 0.6);
+    color: var(--text-color);
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.doctor-section .special-input input[type="text"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 20px rgba(140, 103, 246, 0.2);
+    background: rgba(40, 40, 40, 0.8);
+}
+
+.doctor-section .special-input input[type="text"]::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.1rem;
+}
+
+/* Add spacing between sections */
+.patient-section {
+    margin-top: 2rem;
+}
+
+.assessment-section {
+    margin-top: 2rem;
+}
+
+/* Hover effects for sections */
+.doctor-section:hover,
+.patient-section:hover,
+.assessment-section:hover {
+    border-color: rgba(140, 103, 246, 0.2);
+    box-shadow: 0 6px 20px rgba(140, 103, 246, 0.1);
+    transition: all 0.3s ease;
+}
+
+.patient-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+@media (max-width: 600px) {
+    .patient-info-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Update existing special-input styles to include select */
+.special-input select {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid var(--input-border);
+    border-radius: 12px;
+    background: var(--input-bg);
+    color: var(--text-color);
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.special-input select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 15px rgba(140, 103, 246, 0.2);
+    background: rgba(40, 40, 40, 0.9);
+}
+
+.special-input select option {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    padding: 1rem;
+}

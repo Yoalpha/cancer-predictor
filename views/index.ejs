@@ -3,9 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/index.css">
+    <title>Health Assessment</title>
 </head>
 <body>
-    <h1>Welcome!</h1>
+    <div class="landing-container">
+        <h1>Welcome to the Health Assessment Tool</h1>
+
+        <div class="button-container">
+            <a href="/login" class="button">Login</a>
+            <a href="/register" class="button">Register</a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const createParticles = () => {
+                const particlesContainer = document.createElement('div');
+                particlesContainer.style.position = 'fixed';
+                particlesContainer.style.width = '100%';
+                particlesContainer.style.height = '100%';
+                particlesContainer.style.zIndex = '-1';
+                document.body.appendChild(particlesContainer);
+
+                for (let i = 0; i < 50; i++) {
+                    const particle = document.createElement('div');
+                    particle.style.position = 'absolute';
+                    particle.style.width = Math.random() * 3 + 'px';
+                    particle.style.height = particle.style.width;
+                    particle.style.background = 'rgba(140, 103, 246, 0.2)';
+                    particle.style.borderRadius = '50%';
+                    particle.style.left = Math.random() * 100 + 'vw';
+                    particle.style.top = Math.random() * 100 + 'vh';
+                    particle.style.animation = `float ${Math.random() * 6 + 4}s infinite`;
+                    particlesContainer.appendChild(particle);
+                }
+            };
+
+            createParticles();
+        });
+    </script>
 </body>
 </html>
