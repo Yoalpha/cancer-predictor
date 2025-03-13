@@ -3,27 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../public/css/register.css">
+    <title>Register - Health Assessment</title>
+    <link rel="stylesheet" href="css/register.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="cover">
-        <form>
+        <form action="/register" method="POST">
             <h1>Register</h1>
-            <div class="usernpass">
-                <label for="username">Create your username:</label><br>
-                <input type="text" id="username" required>
+            <% if (locals.msg) { %>
+                <div class="message <%= locals.error ? 'error' : 'success' %>">
+                    <%= locals.msg %>
+                </div>
+            <% } %>
+            <br>
+            <div class="input-group">
+                <select name="role" required>
+                    <option value="" disabled selected>Select Role</option>
+                    <option value="doctor">Doctor</option>
+                    <option value="patient">Patient</option>
+                </select>
+                <i class='bx bxs-badge'></i>
             </div>
 
-            <div class="usernpass">
-                <label for="password">Create your password:</label><br>
-                <input type="text" id="password" required>
+            <div class="input-group">
+                <input type="text" name="username" placeholder="Username" required>
+                <i class='bx bxs-user'></i>
             </div>
-            
-            <p class="required">junk</p>
 
-            <button class="button">Submit</button>
+            <div class="input-group">
+                <input type="email" name="email" placeholder="Email" required>
+                <i class='bx bxs-envelope'></i>
+            </div>
+
+            <div class="input-group">
+                <input type="password" name="password" placeholder="Password" required>
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+
+            <div class="input-group">
+                <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+
+            <button type="submit" class="button">Create Account</button>
+
+            <div class="login-link">
+                <p>Already have an account? <a href="/login">Login</a></p>
+            </div>
         </form>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const createParticles = () => {
+                const particlesContainer = document.createElement('div');
+                particlesContainer.style.position = 'fixed';
+                particlesContainer.style.width = '100%';
+                particlesContainer.style.height = '100%';
+                particlesContainer.style.zIndex = '-1';
+                document.body.appendChild(particlesContainer);
+
+                for (let i = 0; i < 50; i++) {
+                    const particle = document.createElement('div');
+                    particle.style.position = 'absolute';
+                    particle.style.width = Math.random() * 3 + 'px';
+                    particle.style.height = particle.style.width;
+                    particle.style.background = 'rgba(140, 103, 246, 0.2)';
+                    particle.style.borderRadius = '50%';
+                    particle.style.left = Math.random() * 100 + 'vw';
+                    particle.style.top = Math.random() * 100 + 'vh';
+                    particle.style.animation = `float ${Math.random() * 6 + 4}s infinite`;
+                    particlesContainer.appendChild(particle);
+                }
+            };
+
+            createParticles();
+        });
+    </script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login - Health Assessment</title>
     <link rel="stylesheet" href="css/login.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,29 +11,62 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class = "cover">
-        <form>
+    <div class="cover">
+        <form action="/login" method="POST">
             <h1>Login</h1>
+            <% if (locals.msg) { %>
+                <div class="message <%= locals.error ? 'error' : 'success' %>">
+                    <%= locals.msg %>
+                </div>
+            <% } %>
             <div class="usernpass">
-                <input type="text" placeholder="username" required>
+                <input type="text" name="namee" placeholder="Username" required>
                 <i class='bx bxs-user'></i>
             </div>
 
             <div class="usernpass">
-                <input type="password" placeholder="password" required>
-                <i class='bx bxs-lock-alt' ></i>
+                <input type="password" name="password" placeholder="Password" required>
+                <i class='bx bxs-lock-alt'></i>
             </div>
 
             <div class="forgotpass">
                 <a href="">Forgot Password?</a>
             </div>
 
-            <button class="button"> Submit</button>
+            <button type="submit" class="button">Login</button>
 
             <div class="newacc">
-                <p>Don't have a account? <a href="/register">Register</a></p>
+                <p>Don't have an account? <a href="/register">Register</a></p>
             </div>
         </form>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const createParticles = () => {
+                const particlesContainer = document.createElement('div');
+                particlesContainer.style.position = 'fixed';
+                particlesContainer.style.width = '100%';
+                particlesContainer.style.height = '100%';
+                particlesContainer.style.zIndex = '-1';
+                document.body.appendChild(particlesContainer);
+
+                for (let i = 0; i < 50; i++) {
+                    const particle = document.createElement('div');
+                    particle.style.position = 'absolute';
+                    particle.style.width = Math.random() * 3 + 'px';
+                    particle.style.height = particle.style.width;
+                    particle.style.background = 'rgba(140, 103, 246, 0.2)';
+                    particle.style.borderRadius = '50%';
+                    particle.style.left = Math.random() * 100 + 'vw';
+                    particle.style.top = Math.random() * 100 + 'vh';
+                    particle.style.animation = `float ${Math.random() * 6 + 4}s infinite`;
+                    particlesContainer.appendChild(particle);
+                }
+            };
+
+            createParticles();
+        });
+    </script>
 </body>
 </html>
