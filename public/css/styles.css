@@ -309,11 +309,11 @@ h2 {
 
 .patient-info-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .patient-info-grid {
         grid-template-columns: 1fr;
     }
@@ -344,4 +344,42 @@ h2 {
     background-color: var(--card-bg);
     color: var(--text-color);
     padding: 1rem;
+}
+
+/* Add/update these styles for all special inputs including text type */
+.special-input input[type="text"],
+.special-input input[type="number"],
+.special-input select {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid var(--input-border);
+    border-radius: 12px;
+    background: var(--input-bg);
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.special-input input[type="text"]:focus,
+.special-input input[type="number"]:focus,
+.special-input select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 15px rgba(140, 103, 246, 0.2);
+    background: rgba(40, 40, 40, 0.9);
+}
+
+.special-input input[type="text"]::placeholder,
+.special-input input[type="number"]::placeholder,
+.special-input select::placeholder {
+    color: var(--placeholder-color);
+}
+
+/* Hover effects */
+.special-input input[type="text"]:hover,
+.special-input input[type="number"]:hover,
+.special-input select:hover {
+    border-color: rgba(140, 103, 246, 0.3);
 }

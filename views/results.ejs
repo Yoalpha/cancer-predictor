@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessment Results</title>
+    <link rel="stylesheet" href="css/results.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container fade-in">
+        <div class="results-card slide-up">
+            <h1>Assessment Results</h1>
+            
+            <div class="section doctor-info">
+                <h2><i class='bx bxs-user-badge'></i> Doctor Information</h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="label">Doctor's Name:</span>
+                        <span class="value"><%= doctorName %></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section patient-info">
+                <h2><i class='bx bxs-user'></i> Patient Information</h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="label">Age:</span>
+                        <span class="value"><%= age %></span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Gender:</span>
+                        <span class="value"><%= gender %></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section assessment-info">
+                <h2><i class='bx bxs-report'></i> Health Assessment Details</h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="label">Air Pollution:</span>
+                        <span class="value"><%= airPollution %>/10</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Alcohol Use:</span>
+                        <span class="value"><%= alcoholUse %>/10</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Dust Allergy:</span>
+                        <span class="value"><%= dustAllergy %>/10</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Occupational Hazards:</span>
+                        <span class="value"><%= occupationalHazards %>/10</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Genetic Risk:</span>
+                        <span class="value"><%= geneticRisk %>/10</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Chronic Lung Disease:</span>
+                        <span class="value"><%= chronicLungDisease %>/10</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Balanced Diet:</span>
+                        <span class="value"><%= balancedDiet %>/10</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Obesity:</span>
+                        <span class="value"><%= obesity %>/10</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Smoking:</span>
+                        <span class="value"><%= smoking %>/10</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Passive Smoker:</span>
+                        <span class="value"><%= passiveSmoker %>/10</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Chest Pain:</span>
+                        <span class="value"><%= chestPain %>/10</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Coughing of Blood:</span>
+                        <span class="value"><%= coughingOfBlood %>/10</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Fatigue:</span>
+                        <span class="value"><%= fatigue %>/10</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Weight Loss:</span>
+                        <span class="value"><%= weightLoss %>/10</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Shortness of Breath:</span>
+                        <span class="value"><%= shortnessOfBreath %>/10</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Wheezing:</span>
+                        <span class="value"><%= wheezing %>/10</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Swallowing Difficulty:</span>
+                        <span class="value"><%= swallowingDifficulty %>/10</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Clubbing of Finger Nails:</span>
+                        <span class="value"><%= clubbingOfFingerNails %>/10</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Frequent Cold:</span>
+                        <span class="value"><%= frequentCold %>/10</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Dry Cough:</span>
+                        <span class="value"><%= dryCough %>/10</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Snoring:</span>
+                        <span class="value"><%= snoring %>/10</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section risk-assessment">
+                <h2><i class='bx bxs-report-alt'></i> Risk Assessment</h2>
+                <div class="risk-container">
+                    <div class="risk-level">
+                        <div class="risk-message">
+                            <span class="risk-text"><%= riskMessage %></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="actions">
+                <a href="/form" class="button">New Assessment</a>
+                <a href="/" class="button secondary">Home</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.querySelector('.container');
+            const resultsCard = document.querySelector('.results-card');
+            
+            container.style.opacity = '1';
+            resultsCard.style.transform = 'translateY(0)';
+            
+            const createParticles = () => {
+                const particlesContainer = document.createElement('div');
+                particlesContainer.style.position = 'fixed';
+                particlesContainer.style.width = '100%';
+                particlesContainer.style.height = '100%';
+                particlesContainer.style.zIndex = '-1';
+                document.body.appendChild(particlesContainer);
+
+                for (let i = 0; i < 50; i++) {
+                    const particle = document.createElement('div');
+                    particle.style.position = 'absolute';
+                    particle.style.width = Math.random() * 3 + 'px';
+                    particle.style.height = particle.style.width;
+                    particle.style.background = 'rgba(140, 103, 246, 0.2)';
+                    particle.style.borderRadius = '50%';
+                    particle.style.left = Math.random() * 100 + 'vw';
+                    particle.style.top = Math.random() * 100 + 'vh';
+                    particle.style.animation = `float ${Math.random() * 6 + 4}s infinite`;
+                    particlesContainer.appendChild(particle);
+                }
+            };
+
+            createParticles();
+
+            // Animate risk bar
+            const riskFill = document.querySelector('.risk-fill');
+            if (riskFill) {
+                setTimeout(() => {
+                    riskFill.style.width = riskFill.parentElement.dataset.width;
+                }, 500);
+            }
+        });
+    </script>
+</body>
+</html> 
